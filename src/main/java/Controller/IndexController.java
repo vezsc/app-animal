@@ -27,6 +27,7 @@ public class IndexController extends HttpServlet {
 		String upkind = req.getParameter("upkind");
 		String upr_cd = req.getParameter("upr_cd");
 		String pageNo = req.getParameter("pageNo");
+		
 		String bgnde = req.getParameter("bgnde");
 		if (bgnde != null && bgnde.matches("\\d{4}-\\d{2}-\\d{2}")) {
 			bgnde = bgnde.substring(0, 4) + bgnde.substring(5, 7) + bgnde.substring(8);

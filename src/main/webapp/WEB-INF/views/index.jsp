@@ -23,12 +23,9 @@ select {
 
 .animal-info {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin-top: 30px;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 button {
 	padding: 5px 10px;
@@ -47,6 +44,21 @@ button {
 	margin: 10px auto;
 	max-width: 100%;
 	height: auto;
+}
+.animal-card {
+  width: 47%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  position: relative;
+}
+.animal-card-hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid #ccc;
 }
 </style>
 </head>
@@ -83,11 +95,11 @@ button {
 		<div>총${total } 건의 유기동물정보가 존재합니다.</div>
 		<div class="animal-info" >
 			<c:forEach items="${datas }" var="obj">
-				<div style="width: 50%">
+				<div class="animal-card" onclick="location.href='/detail?no=${obj.desertionNo}'" style="cursor: pointer;">
 					<b>${obj.happenDt }</b>
-					<hr color="#eeeeee"/>
+					<hr class="animal-card-hr"/>
 					${obj.kindCd } | (${obj.specialMark })
-					<hr color="#eeeeee"/>
+					<hr class="animal-card-hr"/>
 					${obj.orgNm } ${obj.happenPlace } <img src="${obj.filename }" class="animal-info img">
 				</div>
 			</c:forEach>
